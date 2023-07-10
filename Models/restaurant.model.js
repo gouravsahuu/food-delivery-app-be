@@ -1,9 +1,20 @@
 const mongoose = require("mongoose");
 
 const resSchema = new mongoose.Schema({
-        name: {type : String, required : true},
-        address: {type : {String}, required : true},
-        menu: {type : [{}], required : true}     
+    name: {type:String,required:true},
+    address: {
+      street: String,
+      city: String,
+      state: String,
+      country: String,
+      zip: String
+    },
+    menu: [{
+      name: String,
+      description: String,
+      price: Number,
+      image: String
+    }]     
 })
 
 const ResModel = mongoose.model("restaurant",resSchema);
